@@ -1,4 +1,7 @@
 const background = document.querySelector(".container")
+const menu = document.querySelector(".menu")
+const btnContainer = document.querySelector(".btn-container")
+const quizBtn = document.querySelector(".quiz-mode")
 const mode = document.querySelector(".mode")
 const generateBtn = document.querySelector(".kanji-btn")
 const kanjiDisplay = document.querySelector(".kanji")
@@ -12,6 +15,14 @@ const grade = document.querySelector(".grade")
 let day = false
 
 window.onLoad = getKanji()
+
+window.onclick = (e) => {
+    if (e.target === menu) {
+        btnContainer.classList.toggle("show")
+    } else {
+        btnContainer.classList.remove("show")
+    }
+}
 
 mode.addEventListener("click", () => {
     if(!day) { 
@@ -40,7 +51,6 @@ let jouyou = await fetch("https://kanjiapi.dev/v1/kanji/jouyou")
 let data1 = await jouyou.json()
 let jinmeiyou = await fetch("https://kanjiapi.dev/v1/kanji/jinmeiyou")
 let data2 = await jinmeiyou.json()
-console.log(data2)
 
 Promise.all([data1, data2]).then((lists) => {
     let list = lists[0].concat(lists[1])
@@ -86,7 +96,6 @@ function generateDisplay(data) {
         on.innerHTML = "n/a"
     } else {
         for(var o = 0; o < data.on_readings.length; o++) {
-            // let removed = data.on_readings[o].replace(".", "")
             onArr.push("  "+data.on_readings[o])
             on.innerHTML = onArr
     }

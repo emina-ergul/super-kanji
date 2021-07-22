@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 body {
@@ -35,15 +36,51 @@ body {
 .super {
     font-size: 55px;
 }
-.mode { 
+
+.menu {
+    position: absolute;
+    right: 2px;
+    top: 2px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    background: rgba(15, 15, 15, 0.925);
+    padding: 7px;
+    font-size: 18px;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+    z-index: 2;
+}
+.fas {
+    position: relative;
+    z-index: 1;
+}
+
+.btn-container {
+    visibility: hidden;
+    opacity: 0;
     position: absolute;
     right: 0;
-    top: 0;
+    top: 37px;
+    display: flex;
+    flex-direction: column;
+    background: rgb(12, 12, 12);
+    border-radius: 4px;
+    transition: 0.2s;
+}
+
+.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.mode { 
     background: #000;
     color: rgb(219, 219, 219);
     font-size: 16px;
     padding: 3px;
-    margin: 10px;
+    margin: 4px;
     border-radius: 5px;
     border: none;
     cursor: pointer;
@@ -54,14 +91,11 @@ body {
 }
 
 .quiz-mode {
-    position: absolute;
-    right: 0;
-    top: 35px;
     background: #000;
     color: rgb(219, 219, 219);
     font-size: 16px;
     padding: 3px;
-    margin: 10px;
+    margin: 4px;
     border-radius: 5px;
     border: none;
     cursor: pointer;
