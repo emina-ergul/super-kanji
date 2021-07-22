@@ -6,6 +6,8 @@ const mode = document.querySelector(".mode")
 const generateBtn = document.querySelector(".kanji-btn")
 const kanjiDisplay = document.querySelector(".kanji")
 const infoBox = document.querySelector(".info-box")
+const info = document.querySelector(".info")
+const revealBtn = document.querySelector(".reveal")
 const meaning = document.querySelector(".meaning")
 const kun = document.querySelector(".kun")
 const on = document.querySelector(".on")
@@ -13,8 +15,11 @@ const stroke = document.querySelector(".stroke")
 const jlpt = document.querySelector(".jlpt")
 const grade = document.querySelector(".grade")
 let day = false
+let studyMode = true
 
 window.onLoad = getKanji()
+quizBtn.addEventListener("click", manageQuizMode)
+revealBtn.addEventListener("click", revealKanjiInfo)
 
 window.onclick = (e) => {
     if (e.target === menu) {
@@ -41,6 +46,27 @@ mode.addEventListener("click", () => {
         day = false
     }
 })
+
+function manageQuizMode() {
+if (studyMode) {
+    quizBtn.innerHTML = "Study mode"
+    studyMode = false
+    console.log("quizmode on")
+    info.style.visibility = "hidden"
+    revealBtn.style.visibility = "visible"
+    } else {
+    quizBtn.innerHTML = "Quiz mode"
+    studyMode = true
+    console.log("quizmode off")
+    info.style.visibility = "visible"
+    revealBtn.style.visibility = "hidden"
+    }
+}
+
+function revealKanjiInfo() {
+    revealBtn.style.visibility = "hidden"
+    info.style.visibility = "visible"
+}
 
 generateBtn.addEventListener("click", ()=> {
 getKanji()
@@ -70,6 +96,10 @@ async function getKanjiData(kanji) {
 }
 
 function generateDisplay(data) {
+    if(!studyMode) {
+        info.style.visibility = "hidden"
+        revealBtn.style.visibility = "visible"
+    }
     let meaningsArr = []
     let kunArr = []
     let onArr = []

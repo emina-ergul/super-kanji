@@ -127,8 +127,8 @@ body {
     padding: 20px;
 }
 
-.show-info-btn {
-    /* display: none; */
+.reveal {
+    visibility: hidden;
     font-family: 'Acme', sans-serif;
     position: absolute;
     left: 50%;
@@ -184,9 +184,5 @@ body {
     .info {
         font-size: 18px;
         height: 310px;
-    }
-    .mode {
-        margin: 5px;
-        font-size: 13px;
     }
 }
