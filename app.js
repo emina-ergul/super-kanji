@@ -51,13 +51,11 @@ function manageQuizMode() {
 if (studyMode) {
     quizBtn.innerHTML = "Study mode"
     studyMode = false
-    console.log("quizmode on")
     info.style.visibility = "hidden"
     revealBtn.style.visibility = "visible"
     } else {
     quizBtn.innerHTML = "Quiz mode"
     studyMode = true
-    console.log("quizmode off")
     info.style.visibility = "visible"
     revealBtn.style.visibility = "hidden"
     }
