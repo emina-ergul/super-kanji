@@ -12,7 +12,8 @@ body {
 }
 
 .container {
-    background-image: linear-gradient(#1b1b1b, rgb(51, 51, 51));
+    background-image: url("arches.png");
+    background-color: #1f1f1f;
     color: #fff;
     display: flex;
     flex-direction: column;
@@ -20,10 +21,10 @@ body {
     width: 100%;
 }
 
-.day {
+/* .day {
     background: linear-gradient(rgb(255, 247, 137), rgb(255, 86, 64));
     color: #000;
-}
+} */
 
 .title {
     margin-top: 15px;

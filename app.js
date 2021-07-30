@@ -1,4 +1,4 @@
-const background = document.querySelector(".container")
+const pageContainer = document.querySelector(".container")
 const menu = document.querySelector(".menu")
 const btnContainer = document.querySelector(".btn-container")
 const quizBtn = document.querySelector(".quiz-mode")
@@ -14,7 +14,7 @@ const on = document.querySelector(".on")
 const stroke = document.querySelector(".stroke")
 const jlpt = document.querySelector(".jlpt")
 const grade = document.querySelector(".grade")
-let day = false
+let darkMode = true
 let studyMode = true
 
 window.onLoad = getKanji()
@@ -30,20 +30,23 @@ window.onclick = (e) => {
 }
 
 mode.addEventListener("click", () => {
-    if(!day) { 
-        background.classList.add("day")
-        kanjiDisplay.style.backgroundColor = "rgba(255, 255, 255, 0.7)"
-        kanjiDisplay.style.color = "#000"
-        infoBox.style.backgroundColor = "rgba(255, 255, 255, 0.7)"
+    if(darkMode) { 
+        darkMode = false
+        pageContainer.style.backgroundColor = "#83db86"
+        pageContainer.style.color = "rgb(30, 30, 30)"
+        kanjiDisplay.style.backgroundColor = "rgba(255, 255, 255, 0.4)"
+        kanjiDisplay.style.color = "rgb(20, 20, 20)"
+        infoBox.style.backgroundColor = "rgba(255, 255, 255, 0.4)"
         mode.innerHTML = "Dark mode"
-        day = true
-    } else if(day) {
-        background.classList.remove("day")
+        
+    } else if(!darkMode) {
+        pageContainer.style.backgroundColor = "#1f1f1f"
+        pageContainer.style.color = "#fff"
         kanjiDisplay.style.backgroundColor = "rgb(15, 15, 15)"
         kanjiDisplay.style.color = "#fff"
         infoBox.style.backgroundColor = "rgb(15, 15, 15, 0.5)"
         mode.innerHTML = "Light mode"
-        day = false
+        darkMode = true
     }
 })
 
