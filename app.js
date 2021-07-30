@@ -1,13 +1,13 @@
 const pageContainer = document.querySelector(".container")
 const menu = document.querySelector(".menu")
-const btnContainer = document.querySelector(".btn-container")
+const menuBtnDisplay = document.querySelector(".menu-btns")
 const quizBtn = document.querySelector(".quiz-mode")
-const mode = document.querySelector(".light-mode")
-const generateBtn = document.querySelector(".kanji-btn")
+const colourMode = document.querySelector(".light-mode")
+const generateBtn = document.querySelector(".generate-btn")
 const kanjiDisplay = document.querySelector(".kanji")
-const infoBox = document.querySelector(".info-box")
-const info = document.querySelector(".info")
-const revealBtn = document.querySelector(".reveal")
+const infoBox = document.querySelector(".kanji-info-container")
+const info = document.querySelector(".kanji-info")
+const revealBtn = document.querySelector(".reveal-btn")
 const meaning = document.querySelector(".meaning")
 const kun = document.querySelector(".kun")
 const on = document.querySelector(".on")
@@ -23,29 +23,28 @@ revealBtn.addEventListener("click", revealKanjiInfo)
 
 window.onclick = (e) => {
     if (e.target === menu) {
-        btnContainer.classList.toggle("show")
+        menuBtnDisplay.classList.toggle("show")
     } else {
-        btnContainer.classList.remove("show")
+        menuBtnDisplay.classList.remove("show")
     }
 }
 
-mode.addEventListener("click", () => {
+colourMode.addEventListener("click", () => {
     if(darkMode) { 
-        darkMode = false
-        pageContainer.style.backgroundColor = "#83db86"
+        pageContainer.style.backgroundColor = "#A6E6A7"
         pageContainer.style.color = "rgb(30, 30, 30)"
         kanjiDisplay.style.backgroundColor = "rgba(255, 255, 255, 0.4)"
         kanjiDisplay.style.color = "rgb(20, 20, 20)"
         infoBox.style.backgroundColor = "rgba(255, 255, 255, 0.4)"
-        mode.innerHTML = "Dark mode"
-        
-    } else if(!darkMode) {
+        colourMode.innerHTML = "Dark mode"
+        darkMode = false
+    } else {
         pageContainer.style.backgroundColor = "#1f1f1f"
-        pageContainer.style.color = "#fff"
+        pageContainer.style.color = "rgb(228, 228, 228)"
         kanjiDisplay.style.backgroundColor = "rgb(15, 15, 15)"
-        kanjiDisplay.style.color = "#fff"
+        kanjiDisplay.style.color = "rgb(228, 228, 228);"
         infoBox.style.backgroundColor = "rgb(15, 15, 15, 0.5)"
-        mode.innerHTML = "Light mode"
+        colourMode.innerHTML = "Light mode"
         darkMode = true
     }
 })

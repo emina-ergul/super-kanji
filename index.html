@@ -18,16 +18,14 @@
     <div class="container">
         <header class="title"><span class="super">スーパー</span> Kanji!</header>
         <i class="menu fas fa-bars"></i>
-        <div class="btn-container">
-            <button class="light-mode">Light mode</button>
-            <button class="quiz-mode">Quiz mode</button>
+        <div class="menu-btns">
+            <button class="light-mode menu-btn">Light mode</button>
+            <button class="quiz-mode menu-btn">Quiz mode</button>
         </div>
-        
-        <div class="kanji"></div>
-
-        <div class="info-box">
-            <button class="reveal">Reveal details</button>
-            <div class="info">
+        <div class="kanji panel"></div>
+        <div class="kanji-info-container panel">
+            <button class="reveal-btn">Reveal details</button>
+            <div class="kanji-info">
                 <p>Meaning: <span class="meaning"></span></p>
                 <br>
                 <p>Kun reading: <span class="kun"></span></p>
@@ -38,8 +36,7 @@
                 <p>JLPT: <span class="jlpt"></span></p>
             </div>
         </div>
-
-        <button class="kanji-btn">Generate new Kanji</button>
+        <button class="generate-btn panel">Generate new Kanji</button>
         <p class="signed">Made by Emina Ergul</p>
     </div>
 <script src="app.js"></script>
