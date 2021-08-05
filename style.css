@@ -57,6 +57,7 @@ body {
     padding: 4px;
     background: rgb(15, 15, 15);
     border-radius: 5px;
+    z-index: 5;
     /* transition: 0.2s; */
 }
 
